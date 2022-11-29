@@ -1,0 +1,15 @@
+# react
+public
+src
+
+#  styleguide
+styleguide
+styleguide.config.js
+
+# npm
+node_modules
+lib
+
+# git
+.gitignore
+.github
