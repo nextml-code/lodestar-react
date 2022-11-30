@@ -1,6 +1,9 @@
-# lodestar-react
+# Lodestar React
 
-- state handling
-- function components e.g. `<Map/>`
-- api sdk
-- common hooks
+React standard library for nextml react projects
+
+```
+npm i @nextml/lodestar-react
+```
+
+[API Reference](https://nextml-code.github.io/lodestar-react/)
