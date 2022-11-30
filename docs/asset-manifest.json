@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/nextml-code/lodestar-react/build/bundle.5c45149c.js",
+    "main.js": "/nextml-code/lodestar-react/build/bundle.e99ede03.js",
     "index.html": "/nextml-code/lodestar-react/index.html"
   },
   "entrypoints": [
-    "build/bundle.5c45149c.js"
+    "build/bundle.e99ede03.js"
   ]
 }

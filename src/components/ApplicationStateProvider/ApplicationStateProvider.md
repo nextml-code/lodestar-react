@@ -14,6 +14,7 @@ const App = () => {
           // some initial state for the reducer
         }
       }
+      featureToggles={["foo"]}
     >
       <div>Your app...</div>
     </ApplicationStateProvider>

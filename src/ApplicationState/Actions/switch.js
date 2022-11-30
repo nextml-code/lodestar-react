@@ -1,8 +1,17 @@
 import { typeOf } from "@nextml/lodestar";
 import { MERGE, REPLACE } from "./types.js";
 
-export const actionSwitch = (state, action) => {
+export const actionSwitch = (debugState) => (state, action) => {
   const { type, key, payload } = action;
+
+  if (debugState[key]) {
+    console.log(
+      `%c DEBUG: Actions.${action.type}({ ${key}: ${JSON.stringify(
+        action.payload
+      )} })`,
+      "color: #0be881; background: #1e272e; font-size: 12px"
+    );
+  }
 
   if (typeOf(state[key]) === typeOf(payload)) {
     switch (type) {

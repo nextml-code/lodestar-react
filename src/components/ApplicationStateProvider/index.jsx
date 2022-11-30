@@ -1,13 +1,16 @@
 import { useCallback, useReducer } from "react";
 import { ApplicationStateContext } from "../../ApplicationState/index.jsx";
 import { reducer } from "../../ApplicationState/reducer.js";
+import {
+  DeveloperSettings,
+  useDeveloperSettings,
+} from "../../Developer/index.jsx";
 
-export const ApplicationStateProvider = ({
-  children,
-  config,
-  initialState,
-}) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const ApplicationStateConfig = ({ initialState, config, children }) => {
+  const {
+    state: { debug: debugState },
+  } = useDeveloperSettings();
+  const [state, dispatch] = useReducer(reducer(debugState), initialState);
 
   // Makes it possible to pass several
   // actions to dispatch like:
@@ -23,11 +26,27 @@ export const ApplicationStateProvider = ({
         state,
         dispatch: customDispatch,
         config,
-        // debug
-        // features
       }}
     >
       {children}
     </ApplicationStateContext.Provider>
+  );
+};
+
+export const ApplicationStateProvider = ({
+  children,
+  config,
+  initialState,
+  featureToggles,
+}) => {
+  return (
+    <DeveloperSettings
+      initialState={initialState}
+      featureToggles={featureToggles}
+    >
+      <ApplicationStateConfig config={config} initialState={initialState}>
+        {children}
+      </ApplicationStateConfig>
+    </DeveloperSettings>
   );
 };

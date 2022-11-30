@@ -2,6 +2,7 @@ import { Actions } from "./ApplicationState/Actions/index.js";
 import { useApplicationState } from "./ApplicationState/index.jsx";
 import { Map } from "./components/Map/index.jsx";
 import { ApplicationStateProvider } from "./components/ApplicationStateProvider/index.jsx";
+import { DeveloperSettingsView } from "./components/DeveloperSettingsView/index.jsx";
 
 const Foo = (props) => (
   <div>
@@ -18,11 +19,15 @@ const TestView = () => {
 
   return (
     <div>
+      <p>hello world</p>
       <Map data={state.foo} component={Foo} />
 
       <button
         onClick={() => {
-          dispatch(Actions.merge("foo", [{ i: state.foo.length }]));
+          dispatch(
+            Actions.merge("foo", [{ i: state.foo.length }]),
+            Actions.replace("bar", "bar2")
+          );
         }}
       >
         click to add to state
@@ -44,11 +49,13 @@ const App = () => {
       config={{}}
       initialState={{
         foo: [{ i: 0 }],
+        bar: "bar",
+        baz: { one: {} },
       }}
+      featureToggles={["foo"]}
     >
-      <div>
-        <TestView />
-      </div>
+      <TestView />
+      <DeveloperSettingsView />
     </ApplicationStateProvider>
   );
 };

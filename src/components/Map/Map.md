@@ -3,7 +3,7 @@ Map data in array to a react component
 ```jsx
 <Map
   data={[{ name: "foo" }, { name: "bar" }, { name: "baz" }]}
-  Component={({ name }) => <div>{name}</div>}
+  component={({ name }) => <div>{name}</div>}
 />
 ```
 
@@ -13,7 +13,7 @@ Pass shared propertes to children
 <Map
   data={[{ name: "foo" }, { name: "bar" }, { name: "baz" }]}
   description="This is a shared description"
-  Component={({ name, description }) => (
+  component={({ name, description }) => (
     <div>
       {description}
       <br />
@@ -33,6 +33,6 @@ Select `key` for the mapped component with `keyFrom` attribute
     { id: "33117acf-90d5-48a3-a06b-201ff26003e0", name: "baz" },
   ]}
   keyFrom="id"
-  Component={({ name }) => <div>{name}</div>}
+  component={({ name }) => <div>{name}</div>}
 />
 ```
