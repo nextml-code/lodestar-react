@@ -3,19 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ApplicationStateProvider } from "./components/ApplicationStateProvider/index.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ApplicationStateProvider
-      config={{}}
-      initialState={{
-        foo: [{ i: 0 }],
-      }}
-    >
-      <App />
-    </ApplicationStateProvider>
+    <App />
   </React.StrictMode>
 );
 
