@@ -6,11 +6,19 @@ import {
   useDeveloperSettings,
 } from "../../Developer/index.jsx";
 
-const ApplicationStateConfig = ({ initialState, config, children }) => {
+const ApplicationStateConfig = ({
+  initialState,
+  config,
+  customActions,
+  children,
+}) => {
   const {
     state: { debug: debugState },
   } = useDeveloperSettings();
-  const [state, dispatch] = useReducer(reducer(debugState), initialState);
+  const [state, dispatch] = useReducer(
+    reducer({ debugState, customActions }),
+    initialState
+  );
 
   // Makes it possible to pass several
   // actions to dispatch like:
@@ -36,15 +44,25 @@ const ApplicationStateConfig = ({ initialState, config, children }) => {
 export const ApplicationStateProvider = ({
   children,
   config,
-  initialState,
-  featureToggles,
-}) => {
+  initialState = {},
+  featureToggles = [],
+
+  // Pass a custom action function
+  // (state, action) => { return updatedState }
+  // It will be run if no default action type
+  // is found.
+  customActions = (state, _action) => state,
+} = {}) => {
   return (
     <DeveloperSettings
       initialState={initialState}
       featureToggles={featureToggles}
     >
-      <ApplicationStateConfig config={config} initialState={initialState}>
+      <ApplicationStateConfig
+        config={config}
+        initialState={initialState}
+        customActions={customActions}
+      >
         {children}
       </ApplicationStateConfig>
     </DeveloperSettings>

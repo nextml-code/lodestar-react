@@ -32,6 +32,25 @@ const TestView = () => {
       >
         click to add to state
       </button>
+
+      <h2>{state.thousand}</h2>
+
+      <button
+        onClick={() => {
+          dispatch({ type: "clear", key: "thousand" });
+        }}
+      >
+        clear
+      </button>
+
+      <button
+        onClick={() => {
+          dispatch({ type: "biggest", key: "thousand" });
+        }}
+      >
+        biggest
+      </button>
+
       <button
         onClick={() => {
           dispatch(Actions.merge("foo", 1));
@@ -51,8 +70,22 @@ const App = () => {
         foo: [{ i: 0 }],
         bar: "bar",
         baz: { one: {} },
+        thousand: 1000,
       }}
       featureToggles={["foo"]}
+      customActions={(state, action) => {
+        switch (action.type) {
+          case "clear": {
+            return { ...state, [action.key]: 0 };
+          }
+          case "biggest": {
+            return { ...state, [action.key]: 1000 };
+          }
+          default: {
+            return state;
+          }
+        }
+      }}
     >
       <TestView />
       <DeveloperSettingsView />
