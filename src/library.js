@@ -4,5 +4,6 @@
 export { Actions } from "./ApplicationState/Actions/index.js";
 
 export { ApplicationStateProvider } from "./components/ApplicationStateProvider/index.jsx";
+export { DeveloperSettingsView } from "./components/DeveloperSettingsView/index.jsx";
 export { If } from "./components/If/index.jsx";
 export { Map } from "./components/Map/index.jsx";
