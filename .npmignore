@@ -5,10 +5,10 @@ src
 #  styleguide
 styleguide
 styleguide.config.js
+docs
 
 # npm
 node_modules
-lib
 
 # git
 .gitignore
