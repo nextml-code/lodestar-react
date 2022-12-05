@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { STORAGE_KEY } from "./index.jsx";
+import { STORAGE_KEY } from "./index.js";
 
 export const useLocalStorage = (key, value) => {
   useEffect(() => {

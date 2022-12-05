@@ -1,4 +1,4 @@
-import { LocalStorage } from "../LocalStorage/index.jsx";
+import { LocalStorage } from "../LocalStorage/index.js";
 
 const developerStorage = LocalStorage.read()?.developer;
 

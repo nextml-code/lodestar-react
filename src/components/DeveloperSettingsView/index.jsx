@@ -1,3 +1,4 @@
+import React from "react";
 import {
   faBug,
   faCircle,
@@ -5,7 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { camelCaseToSnakeCase, identity } from "@nextml/lodestar";
-import React from "react";
 import { FilterInput } from "../../Developer/FilterInput.jsx";
 import { Toggles } from "../../Developer/Toggles.jsx";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { camelCaseToSnakeCase } from "@nextml/lodestar";
 import { Map } from "../components/Map/index.jsx";
 import { Toggle } from "./Toggle.jsx";
