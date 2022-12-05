@@ -4,6 +4,11 @@ Map data in array to a react component
 <Map
   data={[{ name: "foo" }, { name: "bar" }, { name: "baz" }]}
   component={({ name }) => <div>{name}</div>}
+  // Use a unique id e.g. uuid as key.
+  // Using index might cause unexpected UI bugs.
+  keyFrom={(entry, index) => {
+    return entry.id;
+  }}
 />
 ```
 
@@ -20,19 +25,5 @@ Pass shared propertes to children
       {name}
     </div>
   )}
-/>
-```
-
-Select `key` for the mapped component with `keyFrom` attribute
-
-```jsx
-<Map
-  data={[
-    { id: "be72e79a-849f-4409-9459-0cfaa0127145", name: "foo" },
-    { id: "11c56a0d-4be7-4432-be06-b1acdc7f0fc7", name: "bar" },
-    { id: "33117acf-90d5-48a3-a06b-201ff26003e0", name: "baz" },
-  ]}
-  keyFrom="id"
-  component={({ name }) => <div>{name}</div>}
 />
 ```

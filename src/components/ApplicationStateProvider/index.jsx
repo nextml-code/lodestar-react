@@ -1,10 +1,8 @@
 import React, { useCallback, useReducer } from "react";
 import { ApplicationStateContext } from "../../ApplicationState/index.jsx";
 import { reducer } from "../../ApplicationState/reducer.js";
-import {
-  DeveloperSettings,
-  useDeveloperSettings,
-} from "../../Developer/index.jsx";
+import { DeveloperSettings } from "../../Developer/index.jsx";
+import { useDeveloperSettings } from "../../Developer/useDeveloperSettings.js";
 
 const ApplicationStateConfig = ({
   initialState,

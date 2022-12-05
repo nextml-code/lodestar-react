@@ -1,5 +1,4 @@
 import React from "react";
-import { isDefined } from "@nextml/lodestar";
 
 export const Map = ({ data, component: Component, keyFrom, ...props }) =>
   data.map((entry, index) => (
@@ -7,6 +6,6 @@ export const Map = ({ data, component: Component, keyFrom, ...props }) =>
       entry={entry}
       {...props}
       {...entry}
-      key={isDefined(keyFrom) ? entry[keyFrom] : index}
+      key={keyFrom(entry, index)}
     />
   ));

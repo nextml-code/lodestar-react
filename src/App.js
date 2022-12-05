@@ -18,9 +18,15 @@ const TestView = () => {
   const { state, dispatch } = useApplicationState();
 
   return (
-    <div>
-      <p>hello world</p>
-      <Map data={state.foo} component={Foo} />
+    <div
+      style={{
+        border: "1px solid rgba(0,0,0,0.1)",
+        borderRadius: "7px",
+        padding: "32px",
+      }}
+    >
+      <h2>Test View</h2>
+      <Map data={state.foo} component={Foo} keyFrom={(x) => x.i} />
 
       <button
         onClick={() => {
@@ -87,8 +93,11 @@ const App = () => {
         }
       }}
     >
-      <TestView />
-      <DeveloperSettingsView />
+      <div>
+        {/* <h1>Lodestar React</h1>
+        <TestView /> */}
+        <DeveloperSettingsView />
+      </div>
     </ApplicationStateProvider>
   );
 };

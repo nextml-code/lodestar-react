@@ -1,4 +1,5 @@
 import { typeOf } from "@nextml/lodestar";
+import { merge } from "./merge.js";
 import { MERGE, REPLACE } from "./types.js";
 
 export const actionSwitch =
@@ -8,31 +9,19 @@ export const actionSwitch =
 
     if (debugState[key]) {
       console.log(
-        `%c DEBUG: Actions.${action.type}({ ${key}: ${JSON.stringify(
-          action.payload
-        )} })`,
+        `%c DEBUG: Actions.${action.type}({ ${key} })`,
         "color: #0be881; background: #1e272e; font-size: 12px"
       );
+      console.log(action.payload);
     }
 
     switch (type) {
       case MERGE: {
         if (typeOf(state[key]) === typeOf(payload)) {
-          switch (typeOf(state[key])) {
-            case "array": {
-              return { ...state, [key]: [...state[key], ...payload] };
-            }
-            case "object": {
-              return { ...state, [key]: { ...state[key], ...payload } };
-            }
-            default: {
-              throw new TypeError(
-                `Actions.merge: merge is not implemented for type ${typeOf(
-                  state[key]
-                )}`
-              );
-            }
-          }
+          return {
+            ...state,
+            [key]: merge(state[key], payload),
+          };
         } else {
           throw new TypeError(
             `Actions.${type}({ key: ${key}, payload: ${payload} }): payload needs to be of type "${typeOf(

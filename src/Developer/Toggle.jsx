@@ -1,17 +1,18 @@
 import React from "react";
-import { useDeveloperSettings } from "./index.jsx";
+import { useDeveloperSettings } from "./useDeveloperSettings.js";
 
 // TODO: some styling
-export const Toggle = ({ name, selected, scope }) => {
-  const { dispatch } = useDeveloperSettings();
+export const Toggle = ({ name, scope }) => {
+  const { dispatch, state } = useDeveloperSettings();
 
   return (
-    <div>
+    <div style={{ fontSize: "18px", fontWeight: 100 }}>
       <input
         type={"checkbox"}
-        value={selected}
-        onChange={() => dispatch({ scope, key: name })}
-        defaultChecked={selected}
+        onChange={(event) => {
+          dispatch({ scope, key: name, payload: event.target.checked });
+        }}
+        defaultChecked={state[scope][name]}
       />
       &nbsp;{name}
     </div>
