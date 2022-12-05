@@ -7,6 +7,7 @@ const peerDependencies = [
   "react",
   "react-dom",
   /@babel\/runtime/,
+  /@fortawesome\//,
   "@nextml/lodestar",
 ];
 
