@@ -94,8 +94,8 @@ const App = () => {
       }}
     >
       <div>
-        {/* <h1>Lodestar React</h1>
-        <TestView /> */}
+        <h1>Lodestar React</h1>
+        <TestView />
         <DeveloperSettingsView />
       </div>
     </ApplicationStateProvider>
