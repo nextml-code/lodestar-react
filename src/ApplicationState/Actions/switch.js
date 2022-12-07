@@ -1,6 +1,6 @@
-import { typeOf } from "@nextml/lodestar";
+import { updateIn } from "@nextml/lodestar";
 import { merge } from "./merge.js";
-import { MERGE, REPLACE } from "./types.js";
+import { ADD, MERGE, REPLACE, TOGGLE } from "./types.js";
 
 export const actionSwitch =
   ({ debugState, customActions }) =>
@@ -15,32 +15,23 @@ export const actionSwitch =
       console.log(action.payload);
     }
 
+    // TODO: validation of payload, state value and type
+
     switch (type) {
+      case ADD: {
+        return updateIn((value) => value + payload, key, state);
+      }
+
       case MERGE: {
-        if (typeOf(state[key]) === typeOf(payload)) {
-          return {
-            ...state,
-            [key]: merge(state[key], payload),
-          };
-        } else {
-          throw new TypeError(
-            `Actions.${type}({ key: ${key}, payload: ${payload} }): payload needs to be of type "${typeOf(
-              state[key]
-            )}" but got "${typeOf(payload)}".`
-          );
-        }
+        return updateIn(merge(payload), key, state);
       }
 
       case REPLACE: {
-        if (typeOf(state[key]) === typeOf(payload)) {
-          return { ...state, [key]: payload };
-        } else {
-          throw new TypeError(
-            `Actions.${type}({ key: ${key}, payload: ${payload} }): payload needs to be of type "${typeOf(
-              state[key]
-            )}" but got "${typeOf(payload)}".`
-          );
-        }
+        return updateIn((_) => payload, key, state);
+      }
+
+      case TOGGLE: {
+        return updateIn((value) => !value, key, state);
       }
 
       default: {

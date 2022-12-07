@@ -31,8 +31,8 @@ const TestView = () => {
       <button
         onClick={() => {
           dispatch(
-            Actions.merge("foo", [{ i: state.foo.length }]),
-            Actions.replace("bar", "bar2")
+            Actions.merge(["foo"], [{ i: state.foo.length }]),
+            Actions.replace(["bar"], "bar2")
           );
         }}
       >
@@ -59,10 +59,18 @@ const TestView = () => {
 
       <button
         onClick={() => {
-          dispatch(Actions.merge("foo", 1));
+          dispatch(Actions.merge(["foo"], 1));
         }}
       >
         click to trigger error
+      </button>
+
+      <button
+        onClick={() => {
+          dispatch(Actions.toggle(["toggle"]));
+        }}
+      >
+        {state.toggle ? "on" : "off"}
       </button>
     </div>
   );
