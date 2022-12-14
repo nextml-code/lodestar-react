@@ -13,7 +13,12 @@ export const reducer =
       state
     );
 
-    if (actions.map(({ key }) => debugState[key]).includes(true)) {
+    if (
+      actions
+        .map(({ key }) => key.map((k) => debugState[k]))
+        .flat()
+        .includes(true)
+    ) {
       console.log(nextState);
     }
 

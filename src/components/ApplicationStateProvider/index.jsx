@@ -1,5 +1,5 @@
 import React, { useCallback, useReducer } from "react";
-import { ApplicationStateContext } from "../../ApplicationState/index.jsx";
+import { ApplicationStateContext } from "../../ApplicationState/index.js";
 import { reducer } from "../../ApplicationState/reducer.js";
 import { DeveloperSettings } from "../../Developer/index.jsx";
 import { useDeveloperSettings } from "../../Developer/useDeveloperSettings.js";

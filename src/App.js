@@ -1,5 +1,5 @@
 import { Actions } from "./ApplicationState/Actions/index.js";
-import { useApplicationState } from "./ApplicationState/index.jsx";
+import { useApplicationState } from "./ApplicationState/index.js";
 import { Map } from "./components/Map/index.jsx";
 import { ApplicationStateProvider } from "./components/ApplicationStateProvider/index.jsx";
 import { DeveloperSettingsView } from "./components/DeveloperSettingsView/index.jsx";
@@ -43,7 +43,7 @@ const TestView = () => {
 
       <button
         onClick={() => {
-          dispatch({ type: "clear", key: "thousand" });
+          dispatch({ type: "clear", key: ["thousand"] });
         }}
       >
         clear
@@ -51,7 +51,7 @@ const TestView = () => {
 
       <button
         onClick={() => {
-          dispatch({ type: "biggest", key: "thousand" });
+          dispatch({ type: "biggest", key: ["thousand"] });
         }}
       >
         biggest

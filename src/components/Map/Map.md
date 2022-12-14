@@ -15,15 +15,20 @@ Map data in array to a react component
 Pass shared propertes to children
 
 ```jsx
+const Description = ({ name, description }) => (
+  <div>
+    {description}
+    <br />
+    {name}
+  </div>
+);
+
 <Map
   data={[{ name: "foo" }, { name: "bar" }, { name: "baz" }]}
   description="This is a shared description"
-  component={({ name, description }) => (
-    <div>
-      {description}
-      <br />
-      {name}
-    </div>
-  )}
-/>
+  keyFrom={(entry, index) => {
+    return entry.id;
+  }}
+  component={Description}
+/>;
 ```

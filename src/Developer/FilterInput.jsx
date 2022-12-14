@@ -25,7 +25,7 @@ export const FilterInput = () => {
           dispatch({ scope: "settings", key: "filter", payload: value })
         }
         value={state.settings.filter}
-        placeholder={"bananas..."}
+        placeholder={"search..."}
         style={{
           border: "none",
           backgroundColor: "transparent",
