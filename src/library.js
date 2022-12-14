@@ -13,6 +13,7 @@ export { useApplicationState } from "./ApplicationState/index.js";
 //
 export { DeveloperSettingsView } from "./components/DeveloperSettingsView/index.jsx";
 export { FeatureToggle } from "./components/FeatureToggle/index.jsx";
+export { useDebug } from "./Developer/useDebug.js";
 
 //
 // Components
