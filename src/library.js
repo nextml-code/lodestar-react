@@ -6,7 +6,7 @@
 //
 export { Actions } from "./ApplicationState/Actions/index.js";
 export { ApplicationStateProvider } from "./components/ApplicationStateProvider/index.jsx";
-export { useApplicationState } from "./ApplicationState/index.jsx";
+export { useApplicationState } from "./ApplicationState/index.js";
 
 //
 // Developer settings
