@@ -48,6 +48,7 @@ const TestView = () => {
       >
         clear
       </button>
+      <br />
 
       <button
         onClick={() => {
@@ -56,7 +57,7 @@ const TestView = () => {
       >
         biggest
       </button>
-
+      <br />
       <button
         onClick={() => {
           dispatch(Actions.merge(["foo"], 1));
@@ -64,6 +65,7 @@ const TestView = () => {
       >
         click to trigger error
       </button>
+      <br />
 
       <button
         onClick={() => {
