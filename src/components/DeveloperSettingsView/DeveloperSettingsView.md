@@ -6,6 +6,7 @@ View that toggles state keys for debug mode and feature toggles.
 import { ApplicationStateProvider } from "../ApplicationStateProvider/index.jsx";
 import { useApplicationState } from "../../ApplicationState/index.js";
 import { Actions } from "../../ApplicationState/Actions/index.js";
+import { useDebug } from "../../Developer/useDebug.js";
 
 const initialState = {
   scope: {
@@ -19,6 +20,7 @@ const initialState = {
 
 const TestView = () => {
   const { dispatch } = useApplicationState();
+  const debug = useDebug();
 
   return (
     <button
@@ -26,7 +28,7 @@ const TestView = () => {
         dispatch(Actions.replace(["scope", "value1"], 100));
       }}
     >
-      test me
+      test me {debug("scope", "debug:scope")}
     </button>
   );
 };
