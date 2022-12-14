@@ -91,6 +91,7 @@ export const DeveloperSettingsView = () => {
 
       <div style={{ display: "flex", fontFamily: "monospace" }}>
         <Tabs setTab={setTab} selectedTab={state.settings.tab} />
+
         <Toggles tab={state.settings.tab} data={toggles} />
       </div>
     </div>

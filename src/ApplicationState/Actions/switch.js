@@ -7,7 +7,7 @@ export const actionSwitch =
   (state, action) => {
     const { type, key, payload } = action;
 
-    if (debugState[key]) {
+    if (key.map((k) => debugState[k]).includes(true)) {
       console.log(
         `%c DEBUG: Actions.${action.type}({ ${key} })`,
         "color: #0be881; background: #1e272e; font-size: 12px"
